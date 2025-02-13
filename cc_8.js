@@ -27,3 +27,26 @@ let calculateServiceFee = (amount, serviceType) => {
 
 console.log(calculateServiceFee(200, "Premium")); // Expected output: "Service Fee: $30.00"
 console.log(calculateServiceFee(500, "Standard")); // Expected output: "Service Fee: $50.00"
+
+// Task 4: Parameters and Arguments
+
+let calculateRentalCost = (days, carType, insurance = false) => {
+    
+    let rentalCost = { // Creating rental cost object
+        "Economy": 40,
+        "Standard": 60,
+        "Luxury": 100
+    };
+
+    let balance = (rentalCost[carType] * days) // creating a balance variable so that I can run the if statements to calculate insurance, otherwise this would just be the return statement
+
+    if (insurance === true) { // if we have insurance, adding $20 to the balance for each day, then returning the balance
+        balance += 20 * days
+        return (`Total Rental Cost: $${balance}`)
+    }
+
+        return (`Total Rental Cost: $${balance}`) // No else statement necessary
+};
+
+console.log(calculateRentalCost(3, "Economy", true)); // Expected output: "Total Rental Cost: $180")
+console.log(calculateRentalCost(5, "Luxury", false)); // Expected output: "Total Rental Cost: $500")
