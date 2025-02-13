@@ -56,5 +56,13 @@ console.log(calculateRentalCost(5, "Luxury", false)); // Expected output: "Total
 
 let calculateLoanPayment = (principal, rate, time) => `Total Payment $${(principal + (principal * rate * time)).toFixed(2)}` 
 // writing this function as an arrow statement eliminates the need for a return keyword (i just learned that i can even add text to it)
+
 console.log(calculateLoanPayment(1000, 0.05, 2)); // Expected output: "Total Payment: $1100.00"
 console.log(calculateLoanPayment(5000, 0.07, 3)); // Expected output: "Total Payment: $6050.00"
+
+// Task 6: Higher-Order Functions
+
+let transactions = [200, 1500, 3200, 800, 2500]; // initializing the transactions array 
+let filterLargeTransactions = (transactions) => (transactions > 1000); // this takes in an individual transaction and returns true if the value is > 1000
+let applyFilter = transactions.filter(filterLargeTransactions); // .filter() will only keep the values that are returned as true from filterLargeTransactions
+console.log(applyFilter)
