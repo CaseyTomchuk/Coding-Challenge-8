@@ -65,4 +65,18 @@ console.log(calculateLoanPayment(5000, 0.07, 3)); // Expected output: "Total Pay
 let transactions = [200, 1500, 3200, 800, 2500]; // initializing the transactions array 
 let filterLargeTransactions = (transactions) => (transactions > 1000); // this takes in an individual transaction and returns true if the value is > 1000
 let applyFilter = transactions.filter(filterLargeTransactions); // .filter() will only keep the values that are returned as true from filterLargeTransactions
-console.log(applyFilter)
+console.log(applyFilter);
+
+// Task 7: Closures
+function createCartTracker() {
+
+let expenses = 0;
+return function(addedExpense) {
+    expenses += addedExpense
+    return `Total Cart Value: $${expenses}`;
+};
+};
+
+let cart = createCartTracker();
+console.log(cart(20)); // Expected output: "Total Cart Value: $20"
+console.log(cart(35)); // Expected output: "Total Cart Value: $55"
