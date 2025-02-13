@@ -10,3 +10,20 @@ let calculateDiscount = function(price, discountRate) {
    return price - (price * discountRate)}; // Similar solution to task 1, but formatted differently to be a function expression
 console.log(`Final Price: $${calculateDiscount(100, 0.2).toFixed(2)}`); // Expected output: "Final Price: $80.00"
 console.log(`Final Price: $${calculateDiscount(250, 0.15).toFixed(2)}`); // Expected output: "Final Price: $212.50"
+
+// Task 3: Arrow Function
+
+let calculateServiceFee = (amount, serviceType) => {
+    
+    let serviceTypes = { // creating an object to store the fee associated with the input serviceType
+    "Premium": 0.15,
+    "Standard": 0.10,
+    "Basic": 0.05
+};
+    
+    let fee = (serviceTypes[serviceType] * amount).toFixed(2) // takes in the service type and matches it to the serviceTypes object
+    return (`Service Fee: $${fee}`); // Decided to add the "Service Fee:" text to the return statement rather than the console.log to avoid redundancy
+};
+
+console.log(calculateServiceFee(200, "Premium")); // Expected output: "Service Fee: $30.00"
+console.log(calculateServiceFee(500, "Standard")); // Expected output: "Service Fee: $50.00"
