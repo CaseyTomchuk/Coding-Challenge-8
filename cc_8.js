@@ -80,3 +80,20 @@ return function(addedExpense) {
 let cart = createCartTracker();
 console.log(cart(20)); // Expected output: "Total Cart Value: $20"
 console.log(cart(35)); // Expected output: "Total Cart Value: $55"
+
+// Task 8: Recursion in JavaScript
+
+let calculateSavings = (years, amount) => {
+    if (years >= 10) {
+        return amount; // if already at year 10, the function ends
+    }
+
+    if (years === 0) { // I added this so that if I entered 0 as the year it wouldn't be impacted by the 5% multiplier.
+        return amount; // This could also just be used as a way to view the base value. I couldn't figure out how to make this part recursive
+    }
+
+    return calculateSavings(years + 1, amount * 1.05);  // this is where the recursion happens (years + 1) as well as the 5% increase (amount * 1.05)
+}
+console.log(`Projected Savings: $${calculateSavings(8, 1000).toFixed(2)}`); // Expected output: "Projected Savings: $1102.50"
+console.log(`Projected Savings: $${calculateSavings(5, 5000).toFixed(2)}`); // Expected output: "Projected Savings: $5525.63"
+// note: the projected value is different from the value that I got, even when I double checked what the output should be outside of the program
