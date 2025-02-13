@@ -38,7 +38,8 @@ let calculateRentalCost = (days, carType, insurance = false) => {
         "Luxury": 100
     };
 
-    let balance = (rentalCost[carType] * days) // creating a balance variable so that I can run the if statements to calculate insurance, otherwise this would just be the return statement
+    let balance = (rentalCost[carType] * days) 
+    // creating a balance variable so that I can run the if statements to calculate insurance, otherwise this would just be the return statement
 
     if (insurance === true) { // if we have insurance, adding $20 to the balance for each day, then returning the balance
         balance += 20 * days
@@ -50,3 +51,10 @@ let calculateRentalCost = (days, carType, insurance = false) => {
 
 console.log(calculateRentalCost(3, "Economy", true)); // Expected output: "Total Rental Cost: $180")
 console.log(calculateRentalCost(5, "Luxury", false)); // Expected output: "Total Rental Cost: $500")
+
+// Task 5: Returning Values
+
+let calculateLoanPayment = (principal, rate, time) => `Total Payment $${(principal + (principal * rate * time)).toFixed(2)}` 
+// writing this function as an arrow statement eliminates the need for a return keyword (i just learned that i can even add text to it)
+console.log(calculateLoanPayment(1000, 0.05, 2)); // Expected output: "Total Payment: $1100.00"
+console.log(calculateLoanPayment(5000, 0.07, 3)); // Expected output: "Total Payment: $6050.00"
